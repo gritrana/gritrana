@@ -29,6 +29,6 @@ spec:
       volumes:
         - name: mypvc
           persistentVolumeClaim:
-            claimName: nfs-pvc
+            claimName: hostpath-pvc
       nodeSelector:
-        beta.kubernetes.io/nfs-ready: true
+        beta.kubernetes.io/nfs-ready: "true"
