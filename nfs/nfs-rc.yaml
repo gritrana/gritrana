@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: nfs
-        image: k8s.gcr.io/volume-nfs:0.8
+        image: xujintao/nfs:1.0-centos
         ports:
           - name: nfs
             containerPort: 2049
