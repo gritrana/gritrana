@@ -21,6 +21,7 @@ function start()
     for i in "$@"; do
         # fsid=0: needed for NFSv4
         echo "$i *(rw,fsid=0,insecure,no_root_squash)" >> /etc/exports
+        mkdir -p "$i"
         echo "Serving $i"
     done
   

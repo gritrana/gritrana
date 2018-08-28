@@ -14,7 +14,7 @@
 
 FROM centos
 RUN yum -y install /usr/bin/ps nfs-utils && yum clean all
-RUN mkdir -p /exports
+#RUN mkdir -p /exports
 ADD run_nfs.sh /usr/local/bin/
 
 # expose mountd 20048/tcp and nfsd 2049/tcp and rpcbind 111/tcp

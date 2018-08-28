@@ -2,5 +2,8 @@ docker run \
 --rm \
 -it \
 --privileged \
--v ~/data:/exports \
-xujintao/nfs:1.0
+-v ~/nfsdata:/exports \
+xujintao/nfs:1.1-centos \
+/exports/mysql/master \
+/exports/mysql/slave0 \
+/exports/mysql/slave1
