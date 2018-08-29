@@ -1,14 +1,16 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: db-mysql-master
+  name: db-mysql-master-0
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 100Mi
-  storageClassName: mysql-master
+  selector:
+    matchLabels:
+      name: mysql-master
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -20,7 +22,9 @@ spec:
   resources:
     requests:
       storage: 100Mi
-  storageClassName: mysql-slave-0
+  selector:
+    matchLabels:
+      name: mysql-slave-0
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -32,4 +36,6 @@ spec:
   resources:
     requests:
       storage: 100Mi
-  storageClassName: mysql-slave-1
+  selector:
+    matchLabels:
+      name: mysql-slave-1

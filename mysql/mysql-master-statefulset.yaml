@@ -8,7 +8,8 @@ spec:
   serviceName: mysql-master
   replicas: 1
   selector:
-    name: mysql-master
+    matchLabels:
+      name: mysql-master
   template:
     metadata:
       labels:
@@ -27,7 +28,7 @@ spec:
         - name: MYSQL_REPLICATION_PASSWORD
           value: 'demo'
         volumeMounts:
-        - name: mysql-master-data
+        - name: db
           mountPath: /var/lib/mysql
   volumeClaimTemplates:
   - metadata:
