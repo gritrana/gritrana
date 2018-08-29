@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: nfs
-        image: xujintao/nfs:1.1-centos
+        image: xujintao/nfs:1.0-centos
         args:
         - /exports/mysql/master
         - /exports/mysql/slave-0
