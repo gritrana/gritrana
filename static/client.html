@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+    <meta charset="utf-8">
+    <title>test page</title>
+    <script type="text/javascript" src="static/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            //测试urlencode
+            $.ajax({
+                type: "post",
+                url: "/testgin/urlencode?id=1234&page=1",
+                data: {
+                    username: "alice",
+                    password: 1234
+                },
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(){
+                    alert('urlencode失败');
+                }
+            });
+
+            //测试json
+            $.ajax({
+                type: "post",
+                url: "/testgin/json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    id: "123",
+                    page: "1",
+                    username: "alice",
+                    password: 1234
+                }),
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(){
+                    alert('json失败');
+                }
+            });
+
+            //测试jsonp
+            $.ajax({
+                type: "get",
+                url: "/testgin/jsonp",
+                dataType: "jsonp",
+                // jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+                // jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+                success: function(json){
+                    console.log('您查询到航班信息：票价： ' + json.price + ' 元，余票： ' + json.tickets + ' 张。');
+                },
+                error: function(){
+                    alert('jsonp失败');
+                }
+            });
+
+            // 外部重定向（跨域问题没有解决）
+            $.ajax({
+                type: "get",
+                url: "http://106.14.208.170:8080/testgin/exredirect",
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(){
+                    alert('外部重定向失败');
+                }
+            });
+
+            //内部重定向
+            $.ajax({
+                type:"get",
+                url:"/testgin/inredirect",
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(){
+                    alert('内部重定向失败');
+                }
+            });
+
+            //基础授权
+            // $.ajax({
+            //     type: "get",
+            //     url: "/testgin/baseauth/secrets",
+            //     success: function(data){
+            //         console.log(data);
+            //     },
+            //     error: function(){
+            //         alert('基础授权失败');
+            //     }
+            // })
+
+            //读库
+            $.ajax({
+                type: "get",
+                url: "/testorm/likeinfo?uid=5",
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(){
+                    alert('查库失败');
+                }
+            })
+
+            //第三方API
+            $.ajax({
+                type: "get",
+                url: "/thirdapi/r1",
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(){
+                    alert('第三方api调用失败');
+                }
+            })
+
+            //试试grpc
+            $.ajax({
+                type: "get",
+                url: "/testgrpc/hello",
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(){
+                    alert('grpc调用失败');
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
