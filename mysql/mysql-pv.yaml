@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-master
+  labels:
+    name: mysql-master
+spec:
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    # FIXME: use the right IP
+    server: 10.254.0.7
+    path: "/exports/mysql/master"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-slave-0
+  labels:
+    name: mysql-slave-0
+spec:
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    # FIXME: use the right IP
+    server: 10.254.0.7
+    path: "/exports/mysql/slave-0"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-slave-1
+  labels:
+    name: mysql-slave-1
+spec:
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    # FIXME: use the right IP
+    server: 10.254.0.7
+    path: "/exports/mysql/slave-1"
