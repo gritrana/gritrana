@@ -1,5 +1,7 @@
 ![](https://github.com/gritrana/gritrana/blob/master/cloudapp.jpg)
 
+### mysql存储持久化
+
 #### 1，进到services文件夹
 ```
 cd gritrana/services
@@ -21,3 +23,4 @@ kubectl apply -f db/mysql/mysql-pv.yaml
 kubectl apply -f db/mysql/mysql-pvc.yaml
 kubectl apply -f db/mysql/mysql-master-statefulset.yaml
 ```
+![](https://github.com/gritrana/gritrana/blob/master/mysql-nfs.jpg)
