@@ -6,7 +6,7 @@ metadata:
     name: mysql-master
 spec:
   capacity:
-    storage: 100Mi
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   nfs:
@@ -22,7 +22,7 @@ metadata:
     name: mysql-slave-0
 spec:
   capacity:
-    storage: 100Mi
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   nfs:
@@ -38,7 +38,7 @@ metadata:
     name: mysql-slave-1
 spec:
   capacity:
-    storage: 100Mi
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   nfs:

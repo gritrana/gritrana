@@ -7,7 +7,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi
   selector:
     matchLabels:
       name: mysql-master
@@ -21,7 +21,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi
   selector:
     matchLabels:
       name: mysql-slave-0
@@ -35,7 +35,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi
   selector:
     matchLabels:
       name: mysql-slave-1
